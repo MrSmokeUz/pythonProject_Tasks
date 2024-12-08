@@ -1,4 +1,6 @@
 #Task #1
+from pydoc import replace
+
 from django.db.models.expressions import result
 from requests_toolbelt.multipart.encoder import total_len
 
@@ -69,11 +71,11 @@ def check(seq,elem):
 def grow(arr):
     result = 1
     for x in arr:
-        result *= x  # Умножаем каждый элемент на результат
-    return result  # Возвращаем результат
+        result *= x
+    return result
 
-# Пример использования
-print(grow([1, 2, 3]))  # Вывод: 6
+
+print(grow([1, 2, 3]))
 
 # Given an array of integers, return a new array with each value doubled.
 #
@@ -89,6 +91,66 @@ def maps(a):
 
 print(maps([1,2,4]))
 
+# TASK #8
+# Deoxyribonucleic acid, DNA is the primary information storage molecule in biological systems. It is composed of four nucleic acid bases Guanine ('G'), Cytosine ('C'), Adenine ('A'), and Thymine ('T').
+# Ribonucleic acid, RNA, is the primary messenger molecule in cells. RNA differs slightly from DNA its chemical structure and contains no Thymine. In RNA Thymine is replaced by another nucleic acid Uracil ('U').
+# Create a function which translates a given DNA string into RNA.
+# "GCAT"  =>  "GCAU"
+
+
+# Solution 1
+def dna_to_rna(dna):
+    if 'T' in dna:
+       c = dna.replace('T','U')
+       print(c)
+
+# Solution 2
+def dna_to_rna(dna):
+    return dna.replace("T", "U")
+
+dna_to_rna('TTTT')
 
 
 
+# TASK #9
+
+# Write a program that finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0. Your function only needs to return the result, what is shown between parentheses in the example below is how you reach that result and it's not part of it, see the sample tests.
+# 2 -> 3 (1 + 2)
+# 8 -> 36 (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8)
+
+
+
+# solution 1
+def summation(num):
+    return sum( i for i in range(1,num + 1))
+
+# solution 2
+def summation(num):
+    return sum(range(1,num+1))
+
+summation(2)
+
+
+# TASK 10
+# You get an array of numbers, return the sum of all of the positives ones.
+
+def positive_sum(arr):
+    if not arr:
+        return 0
+    return sum(x for x in arr if x > 0)
+
+print(positive_sum([1, -4, 7]))
+
+#TASK 11 Write a function which converts the input string to uppercase.
+def make_upper_case(s):
+    return s.upper()
+
+#TASK 12 This kata is about multiplying a given number by eight if it is an even number and by nine otherwise.
+
+def simple_multiplication(number):
+    if number%2== 0:
+       return number * 8
+    else:
+       return number * 9
+
+print(simple_multiplication(2))
