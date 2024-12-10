@@ -154,3 +154,59 @@ def simple_multiplication(number):
        return number * 9
 
 print(simple_multiplication(2))
+
+#TASK 13 Complete the function so that it finds the average of the three scores passed to it and returns the letter value associated with that grade.
+
+# solution 1
+def get_grade(s1, s2, s3):
+    a = ((s1+s2+s3)/3)
+    if a >= 90 and a <= 100:
+        return 'A'
+    elif a>=80 and a <=90:
+        return 'B'
+    elif a>=70 and a <=80:
+        return 'C'
+    elif a>=60 and a <=70:
+        return 'D'
+    elif a>=0 and a <=60:
+        return 'F'
+
+# solution 2
+def get_grade(s1, s2, s3):
+    return {6: 'D', 7: 'C', 8: 'B', 9: 'A', 10: 'A'}.get((s1 + s2 + s3) / 30, 'F')
+
+# solution 3
+scores = {10: 'A', 9: 'A', 8: 'B', 7: 'C', 6: 'D'}
+
+def get_grade(*args):
+    mean = sum(args) / len(args)
+    return scores.get(mean // 10, 'F')
+
+    # return "F"
+
+print(get_grade(5,4,3))
+
+
+# Your task is to create a function that does four basic mathematical operations.
+#
+# The function should take three arguments - operation(string/char), value1(number), value2(number).
+# The function should return result of numbers after applying the chosen operation.
+# Examples(Operator, value1, value2) --> output
+
+
+#solution 1
+def basic_op(operator, value1, value2):
+
+    if operator == '+':
+        return value1 + value2
+    elif operator == '-':
+        return value1 - value2
+    elif operator == '*':
+        return value1 * value2
+    elif operator == '/':
+        return value1 / value2
+
+# solution 2
+def basic_op(operator, value1, value2):
+    return eval(str(value1) + operator + str(value2))
+
